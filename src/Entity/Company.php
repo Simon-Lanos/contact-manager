@@ -24,7 +24,7 @@ class Company
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\CompanyAddress", mappedBy="company", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\CompanyAddress",mappedBy="company", orphanRemoval=true, cascade={"persist"})
      */
     private $companyAddresses;
 

@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Company;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,6 +15,20 @@ class CompanyType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add(
+                'companyAddresses',
+                CollectionType::class,
+                [
+                    'entry_type' => CompanyAddressType::class,
+                    'entry_options' =>
+                        [
+                            'label' => false
+                        ],
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'by_reference' => false,
+                ]
+            )
         ;
     }
 
