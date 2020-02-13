@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello !{% endblock %}
+
+{% block body %}
+<nav class="nav">
+    <ul>
+        <li><a href="{{ path('company_index') }}">Company listing</a></li>
+        <li><a href="{{ path('contact_index') }}">Contact listing</a></li>
+    </ul>
+</nav>
+{% endblock %}
