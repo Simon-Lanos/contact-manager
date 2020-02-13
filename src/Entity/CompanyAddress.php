@@ -35,7 +35,7 @@ class CompanyAddress
     private $company;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Contact", mappedBy="companyAddress")
+     * @ORM\OneToMany(targetEntity="App\Entity\Contact", mappedBy="companyAddress", cascade={"persist"})
      */
     private $contacts;
 
