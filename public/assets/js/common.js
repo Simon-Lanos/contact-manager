@@ -8,7 +8,8 @@ function instantiateCollection(collection) {
     let addButton = document.createElement('button');
     addButton.type = 'button';
     addButton.classList.add('btn');
-    addButton.innerText = 'Add new Address';
+    addButton.classList.add('btn-success');
+    addButton.innerText = 'Add new';
 
     addButton.addEventListener('click', function() {
         collection.innerHTML += collection.dataset.prototype.replace('__name__', generateRandomString());
