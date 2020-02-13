@@ -16,11 +16,20 @@
                 <td>{{ company.name }}</td>
             </tr>
             <tr>
-                <th>Company Addresses</th>
+                <th>Company Addresses / Contacts</th>
                 <td>
                     <ul>
                         {% for companyAddress in company.companyAddresses %}
-                            <li>{{ companyAddress.label }}</li>
+                            <li>
+                                {{ companyAddress.label }}
+                                <ul>
+                                    {% for contact in companyAddress.contacts %}
+                                        <li>
+                                            <a href="{{ path('contact_show', {'id': contact.id}) }}">{{ contact.lastname }} {{ contact.firstname }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
                         {% endfor %}
                     </ul>
                 </td>
