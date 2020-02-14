@@ -5,7 +5,8 @@
 {% block body %}
     <h1>Create new Contact</h1>
 
+    <a class="btn btn-outline-secondary" href="{{ path('contact_index') }}">back to list</a>
+
     {{ include('contact/_form.html.twig') }}
 
-    <a class="btn btn-outline-secondary" href="{{ path('contact_index') }}">back to list</a>
 {% endblock %}

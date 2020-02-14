@@ -5,6 +5,8 @@
 {% block body %}
     <h1>Contact</h1>
 
+    <a class="btn btn-outline-secondary" href="{{ path('contact_index') }}">back to list</a>
+
     <table class="table">
         <tbody>
             <tr>
@@ -39,8 +41,6 @@
             </tr>
         </tbody>
     </table>
-
-    <a class="btn btn-outline-secondary" href="{{ path('contact_index') }}">back to list</a>
 
     <a class="btn btn-warning" href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
 
