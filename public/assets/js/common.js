@@ -23,6 +23,19 @@ function instantiateCollection(collection) {
     collection.parentNode.insertBefore(addButton, collection);
 }
 
+//document delegate
+document.addEventListener('click', function (event) {
+
+    //collection remover
+    if (event.target.matches('.remove-collection')) {
+        //get target's parentNode (the collection)
+        let collection = event.target.parentNode;
+        //and removes it
+        collection.parentNode.removeChild(collection);
+    }
+}, false);
+
+
 document.addEventListener('DOMContentLoaded', function () {
     let collections = document.querySelectorAll('[data-prototype]');
     collections.forEach(function (collection) {

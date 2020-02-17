@@ -1,0 +1,20 @@
+{% extends 'bootstrap_4_layout.html.twig' %}
+
+{# overide the form_row to add collection remover #}
+{% block form_row -%}
+    {%- if compound is defined and compound -%}
+        {%- set element = 'fieldset' -%}
+    {%- endif -%}
+    {%- set widget_attr = {} -%}
+    {%- if help is not empty -%}
+        {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+    {%- endif -%}
+    <{{ element|default('div') }}{% with {attr: row_attr|merge({class: (row_attr.class|default('') ~ ' form-group')|trim})} %}{{ block('attributes') }}{% endwith %}>
+    {{- form_label(form) -}}
+    {{- form_widget(form, widget_attr) -}}
+    {{- form_help(form) -}}
+    {% if compound is defined and compound %}
+        <button type="button" class="btn btn-danger remove-collection">Delete</button>
+    {% endif %}
+    </{{ element|default('div') }}>
+{%- endblock form_row %}
